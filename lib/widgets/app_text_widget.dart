@@ -6,6 +6,7 @@ class AppTextWidget extends StatelessWidget {
   final Color textColor;
   FontWeight fontWeight;
   TextAlign textAlign;
+  TextOverflow textOverflow;
   double size;
    AppTextWidget({
     Key? key,
@@ -13,13 +14,14 @@ class AppTextWidget extends StatelessWidget {
     this.fontWeight = FontWeight.w400,
     this.size = 0,
     this.textAlign = TextAlign.start,
+    this.textOverflow = TextOverflow.visible,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Text(
       textAlign: textAlign,
-      overflow: TextOverflow.visible,
+      overflow: textOverflow,
       text,
       softWrap: true,
       style: TextStyle(
