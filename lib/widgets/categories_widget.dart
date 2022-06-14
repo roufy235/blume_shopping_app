@@ -20,7 +20,7 @@ class CategoriesWidget extends StatelessWidget {
             margin: EdgeInsets.only(
               left: Dimensions.width20,
             ),
-            width: Dimensions.width200,
+            width: Dimensions.width170,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(Dimensions.radius20),
                 image: DecorationImage(
@@ -32,7 +32,7 @@ class CategoriesWidget extends StatelessWidget {
         ),
         Positioned(
           child: Container(
-            width: Dimensions.width200,
+            width: Dimensions.width170,
             margin: EdgeInsets.only(
               left: Dimensions.width20,
               right: Dimensions.width10,

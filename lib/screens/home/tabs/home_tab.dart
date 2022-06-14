@@ -4,6 +4,7 @@ import 'package:blume_shopping_app/utils/dimensions.dart';
 import 'package:blume_shopping_app/widgets/app_icon.dart';
 import 'package:blume_shopping_app/widgets/app_text_widget.dart';
 import 'package:blume_shopping_app/widgets/categories_widget.dart';
+import 'package:blume_shopping_app/widgets/product_item_widget.dart';
 import 'package:flutter/material.dart';
 
 class HomeTab extends StatefulWidget {
@@ -133,7 +134,7 @@ class _HomeTabState extends State<HomeTab> {
                 SizedBox(height: Dimensions.height20),
                 // categories
                 SizedBox(
-                  height: Dimensions.height250,
+                  height: Dimensions.height200,
                   child: ListView.builder(
                       scrollDirection: Axis.horizontal,
                       itemCount: categories.length,
@@ -192,67 +193,9 @@ class _HomeTabState extends State<HomeTab> {
                         height: Dimensions.height250,
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            SizedBox(
-                              width: Dimensions.width170,
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Container(
-                                      width: double.maxFinite,
-                                      height: Dimensions.height210,
-                                      decoration: BoxDecoration(
-                                          image: DecorationImage(
-                                              fit: BoxFit.cover,
-                                              image: AssetImage('assets/images/cates/main.jpg')
-                                          )
-                                      )
-                                  ),
-                                  SizedBox(height: Dimensions.height5),
-                                  AppTextWidget(
-                                    text: "V-neck T-shirts",
-                                    textColor: AppColors.mainColor,
-                                    fontWeight: FontWeight.w800,
-                                    textOverflow: TextOverflow.ellipsis,
-                                  ),
-                                  SizedBox(height: Dimensions.height2),
-                                  AppTextWidget(
-                                      text: "\$30",
-                                      textColor: AppColors.mainColorLighter
-                                  ),
-                                ],
-                              ),
-                            ),
-                            SizedBox(
-                              width: Dimensions.width170,
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Container(
-                                      width: double.maxFinite,
-                                      height: Dimensions.height210,
-                                      decoration: BoxDecoration(
-                                          image: DecorationImage(
-                                              fit: BoxFit.cover,
-                                              image: AssetImage('assets/images/cates/main.jpg')
-                                          )
-                                      )
-                                  ),
-                                  SizedBox(height: Dimensions.height5),
-                                  AppTextWidget(
-                                    text: "V-neck T-shirts",
-                                    textColor: AppColors.mainColor,
-                                    fontWeight: FontWeight.w800,
-                                    textOverflow: TextOverflow.ellipsis,
-                                  ),
-                                  SizedBox(height: Dimensions.height2),
-                                  AppTextWidget(
-                                      text: "\$30",
-                                      textColor: AppColors.mainColorLighter
-                                  ),
-                                ],
-                              ),
-                            ),
+                          children: const [
+                            ProductItemWidget(),
+                            ProductItemWidget(),
                           ],
                         ),
                       );

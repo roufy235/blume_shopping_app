@@ -1,4 +1,5 @@
-import 'package:blume_shopping_app/screens/home/home_tab.dart';
+import 'package:blume_shopping_app/screens/home/tabs/categories_tab.dart';
+import 'package:blume_shopping_app/screens/home/tabs/home_tab.dart';
 import 'package:blume_shopping_app/utils/colors.dart';
 import 'package:blume_shopping_app/widgets/app_text_widget.dart';
 import 'package:flutter/material.dart';
@@ -24,9 +25,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
     final List<Widget> tabs = <Widget>[
       HomeTab(customFunction: _onItemTapped),
-      Center(
-        child: AppTextWidget(text: "Categories", textColor: AppColors.mainColor),
-      ),
+      CategoriesTab(customFunction: _onItemTapped),
       Center(
         child: AppTextWidget(text: "Profile", textColor: AppColors.mainColor),
       ),
