@@ -6,9 +6,18 @@ import 'package:blume_shopping_app/widgets/app_text_widget.dart';
 import 'package:blume_shopping_app/widgets/categories_widget.dart';
 import 'package:flutter/material.dart';
 
-class HomeTab extends StatelessWidget {
-  const HomeTab({Key? key}) : super(key: key);
+class HomeTab extends StatefulWidget {
+  final Function customFunction;
+  const HomeTab({
+    Key? key,
+    required this.customFunction
+  }) : super(key: key);
 
+  @override
+  State<HomeTab> createState() => _HomeTabState();
+}
+
+class _HomeTabState extends State<HomeTab> {
   @override
   Widget build(BuildContext context) {
     List<CategoryDataModel> categories = [
@@ -99,19 +108,24 @@ class HomeTab extends StatelessWidget {
                         fontWeight: FontWeight.w600,
                         size: Dimensions.font16,
                       ),
-                      Row(
-                        children: [
-                          AppTextWidget(
-                              text: "All",
-                              textColor: AppColors.mainColorLight.withOpacity(0.5)
-                          ),
-                          SizedBox(width: Dimensions.width5),
-                          Icon(
-                              Icons.arrow_forward_ios,
-                              size: Dimensions.width15,
-                              color: AppColors.mainColorLight.withOpacity(0.5)
-                          )
-                        ],
+                      InkWell(
+                        onTap: () {
+                          widget.customFunction(1);
+                        },
+                        child: Row(
+                          children: [
+                            AppTextWidget(
+                                text: "All",
+                                textColor: AppColors.mainColorLight.withOpacity(0.5)
+                            ),
+                            SizedBox(width: Dimensions.width5),
+                            Icon(
+                                Icons.arrow_forward_ios,
+                                size: Dimensions.width15,
+                                color: AppColors.mainColorLight.withOpacity(0.5)
+                            )
+                          ],
+                        ),
                       )
                     ],
                   ),
