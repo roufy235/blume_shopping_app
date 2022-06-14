@@ -6,8 +6,22 @@ import 'package:blume_shopping_app/widgets/app_text_widget.dart';
 import 'package:blume_shopping_app/widgets/categories_widget.dart';
 import 'package:flutter/material.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+
+  int _currentIndex = 0;
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _currentIndex = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +44,7 @@ class HomeScreen extends StatelessWidget {
               pinned: true,
               backgroundColor: AppColors.mainColorLighter,
               expandedHeight: Dimensions.height350,
-              toolbarHeight: 60,
+              toolbarHeight: 80,
               flexibleSpace: FlexibleSpaceBar(
                 background: Image.asset(
                   "assets/images/main.jpg",
@@ -248,6 +262,61 @@ class HomeScreen extends StatelessWidget {
             )
           )
         ],
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        onTap: _onItemTapped,
+        currentIndex: _currentIndex,
+        selectedItemColor: AppColors.mainColorLighter,
+        unselectedItemColor: Colors.grey,
+        showUnselectedLabels: false,
+        selectedLabelStyle: const TextStyle(
+          fontWeight: FontWeight.w600,
+          fontFamily: 'SofiaPro'
+        ),
+        unselectedIconTheme: const IconThemeData(
+          color: Colors.grey,
+        ),
+        unselectedLabelStyle: const TextStyle(
+          fontWeight: FontWeight.w400,
+          fontFamily: 'SofiaPro',
+        ),
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.home,
+              color: AppColors.mainColor,
+            ),
+            label: "Home",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.category,
+              color: AppColors.mainColor,
+            ),
+            label: "Categories",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.person,
+              color: AppColors.mainColor,
+            ),
+            label: "Profile",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.shopping_cart,
+              color: AppColors.mainColor,
+            ),
+            label: "Cart",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.more_horiz,
+              color: AppColors.mainColor,
+            ),
+            label: "more",
+          )
+        ]
       ),
     );
   }
