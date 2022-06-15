@@ -31,7 +31,7 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       body: Obx(() => tabs.elementAt(c.currentIndex.value)),
-      bottomNavigationBar: BottomNavigationBar(
+      bottomNavigationBar: Obx(() => BottomNavigationBar(
           onTap: c.changeTabIndex,
           currentIndex: c.currentIndex.value,
           selectedItemColor: AppColors.mainColorLighter,
@@ -78,7 +78,7 @@ class HomeScreen extends StatelessWidget {
               ),
               label: "more",
             )
-          ]),
+          ])),
     );
   }
 }
