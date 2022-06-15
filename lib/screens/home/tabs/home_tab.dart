@@ -1,4 +1,5 @@
 import 'package:blume_shopping_app/models/CategoryDataModel.dart';
+import 'package:blume_shopping_app/state/home_tab_controller.dart';
 import 'package:blume_shopping_app/utils/colors.dart';
 import 'package:blume_shopping_app/utils/dimensions.dart';
 import 'package:blume_shopping_app/widgets/app_icon.dart';
@@ -6,21 +7,17 @@ import 'package:blume_shopping_app/widgets/app_text_widget.dart';
 import 'package:blume_shopping_app/widgets/categories_widget.dart';
 import 'package:blume_shopping_app/widgets/product_item_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/route_manager.dart';
 
-class HomeTab extends StatefulWidget {
-  final Function customFunction;
-  const HomeTab({
-    Key? key,
-    required this.customFunction
-  }) : super(key: key);
+class HomeTab extends StatelessWidget {
+  const HomeTab({Key? key}) : super(key: key);
 
-  @override
-  State<HomeTab> createState() => _HomeTabState();
-}
-
-class _HomeTabState extends State<HomeTab> {
   @override
   Widget build(BuildContext context) {
+    final HomeTabController controller = Get.put(HomeTabController());
+
+
     List<CategoryDataModel> categories = [
       CategoryDataModel('Cashmere', 'assets/images/cates/cashmere.jpg'),
       CategoryDataModel('Chiffon', 'assets/images/cates/Chiffon.jpg'),
@@ -111,7 +108,7 @@ class _HomeTabState extends State<HomeTab> {
                       ),
                       InkWell(
                         onTap: () {
-                          widget.customFunction(1);
+                          controller.changeTabIndex(1);
                         },
                         child: Row(
                           children: [

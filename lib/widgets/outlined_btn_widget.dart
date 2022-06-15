@@ -7,6 +7,7 @@ class OutlinedBtnWidget extends StatelessWidget {
   final String text, navigateTo;
   final Color textBorderColor, rippleColor;
   double outlineWidth, borderRadius, padding;
+  bool removePreviousScreen;
   OutlinedBtnWidget({
     Key? key,
     required this.text,
@@ -15,7 +16,8 @@ class OutlinedBtnWidget extends StatelessWidget {
     required this.rippleColor,
     this.outlineWidth = 2.0,
     this.borderRadius = 0,
-    this.padding = 0
+    this.padding = 0,
+    this.removePreviousScreen = false
   }) : super(key: key);
 
   @override
@@ -37,7 +39,12 @@ class OutlinedBtnWidget extends StatelessWidget {
           ),
         ),
         onPressed: () {
-          Get.toNamed(navigateTo);
+          if(removePreviousScreen) {
+            // this will disable back button
+            navigateTo.isNotEmpty ? Get.offNamed(navigateTo) : null;
+          } else {
+            navigateTo.isNotEmpty ? Get.toNamed(navigateTo) : null;
+          }
         },
         child: AppTextWidget(
           textAlign: TextAlign.center,

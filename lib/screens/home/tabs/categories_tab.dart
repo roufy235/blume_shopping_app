@@ -1,18 +1,20 @@
+import 'package:blume_shopping_app/state/home_tab_controller.dart';
 import 'package:blume_shopping_app/utils/colors.dart';
 import 'package:blume_shopping_app/utils/dimensions.dart';
 import 'package:blume_shopping_app/widgets/app_icon.dart';
 import 'package:blume_shopping_app/widgets/app_text_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class CategoriesTab extends StatelessWidget {
-  final Function customFunction;
-  const CategoriesTab({
-    Key? key,
-    required this.customFunction
-  }) : super(key: key);
+  const CategoriesTab({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+
+    final HomeTabController controller = Get.put(HomeTabController());
+
+
     return Column(
       children: [
         Container(
@@ -28,7 +30,7 @@ class CategoriesTab extends StatelessWidget {
             children: [
               InkWell(
                 onTap: () {
-                  customFunction(0);
+                  controller.changeTabIndex(0);
                 },
                 child: const AppIcon(
                     icon: Icons.arrow_back_ios,

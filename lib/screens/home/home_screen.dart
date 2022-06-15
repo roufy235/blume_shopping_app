@@ -15,8 +15,8 @@ class HomeScreen extends StatelessWidget {
     final HomeTabController c = Get.put(HomeTabController());
 
     final List<Widget> tabs = <Widget>[
-      HomeTab(customFunction: c.changeTabIndex),
-      CategoriesTab(customFunction: c.changeTabIndex),
+      const HomeTab(),
+      const CategoriesTab(),
       Center(
         child: AppTextWidget(text: "Profile", textColor: AppColors.mainColor),
       ),

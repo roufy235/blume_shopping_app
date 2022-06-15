@@ -86,7 +86,7 @@ class WelcomeScreen extends StatelessWidget {
                       rippleColor: AppColors.orange,
                       text: "SIGN IN",
                       textBorderColor: AppColors.white,
-                      navigateTo: RouteClass.getLoginRoute(),
+                      navigateTo: RouteClass.getLoginRoute()
                     ),
                   ),
                 ],
