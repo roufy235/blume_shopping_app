@@ -3,17 +3,15 @@ import 'package:blume_shopping_app/screens/login/controller/login_controller.dar
 import 'package:blume_shopping_app/utils/colors.dart';
 import 'package:blume_shopping_app/utils/dimensions.dart';
 import 'package:blume_shopping_app/widgets/app_text_widget.dart';
-import 'package:blume_shopping_app/widgets/elevated_btn_widget.dart';
 import 'package:blume_shopping_app/widgets/func_elevated_btn_widget.dart';
 import 'package:blume_shopping_app/widgets/go_back.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
 
 class LoginScreen extends StatelessWidget {
   LoginScreen({Key? key}) : super(key: key);
 
-  var loginController = Get.put(LoginController());
+  LoginController loginController = Get.put(LoginController());
   final _formKey = GlobalKey<FormState>();
 
   @override

@@ -11,23 +11,23 @@ import 'package:get/get.dart';
 import 'package:get/route_manager.dart';
 
 class HomeTab extends StatelessWidget {
-  const HomeTab({Key? key}) : super(key: key);
+  HomeTab({Key? key}) : super(key: key);
+
+  List<CategoryDataModel> categories = [
+    CategoryDataModel('Cashmere', 'assets/images/cates/cashmere.jpg'),
+    CategoryDataModel('Chiffon', 'assets/images/cates/Chiffon.jpg'),
+    CategoryDataModel('Cotton', 'assets/images/cates/Cotton.jpg'),
+    CategoryDataModel('Damask', 'assets/images/cates/main.jpg'),
+    CategoryDataModel('Georgette', 'assets/images/cates/Georgette.jpg'),
+    CategoryDataModel('Gingham', 'assets/images/cates/Gingham.jpg'),
+    CategoryDataModel('Jersey', 'assets/images/cates/main.jpg'),
+    CategoryDataModel('Lace', 'assets/images/cates/main.jpg')
+  ];
 
   @override
   Widget build(BuildContext context) {
     final HomeTabController controller = Get.put(HomeTabController());
 
-
-    List<CategoryDataModel> categories = [
-      CategoryDataModel('Cashmere', 'assets/images/cates/cashmere.jpg'),
-      CategoryDataModel('Chiffon', 'assets/images/cates/Chiffon.jpg'),
-      CategoryDataModel('Cotton', 'assets/images/cates/Cotton.jpg'),
-      CategoryDataModel('Damask', 'assets/images/cates/main.jpg'),
-      CategoryDataModel('Georgette', 'assets/images/cates/Georgette.jpg'),
-      CategoryDataModel('Gingham', 'assets/images/cates/Gingham.jpg'),
-      CategoryDataModel('Jersey', 'assets/images/cates/main.jpg'),
-      CategoryDataModel('Lace', 'assets/images/cates/main.jpg')
-    ];
 
 
     return CustomScrollView(

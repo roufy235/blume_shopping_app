@@ -17,7 +17,8 @@ class LoginController extends GetxController {
       Get.snackbar(
           "Error",
           "Email and password are not valid",
-          snackPosition: SnackPosition.BOTTOM
+          snackPosition: SnackPosition.BOTTOM,
+          icon: const Icon(Icons.cancel)
       );
 
       // Get.defaultDialog(
