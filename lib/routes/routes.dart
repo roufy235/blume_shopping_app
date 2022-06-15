@@ -32,7 +32,7 @@ class RouteClass {
     GetPage(name: welcome, page: () => const WelcomeScreen()),
     GetPage(
         name: login,
-        page: () => const LoginScreen(),
+        page: () => LoginScreen(),
         transition: transition,
         transitionDuration: transitionDuration),
     GetPage(
