@@ -1,31 +1,22 @@
 import 'package:blume_shopping_app/screens/home/tabs/categories_tab.dart';
 import 'package:blume_shopping_app/screens/home/tabs/home_tab.dart';
+import 'package:blume_shopping_app/state/home_tab_controller.dart';
 import 'package:blume_shopping_app/utils/colors.dart';
 import 'package:blume_shopping_app/widgets/app_text_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-class HomeScreen extends StatefulWidget {
+class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
-
-  @override
-  State<HomeScreen> createState() => _HomeScreenState();
-}
-
-class _HomeScreenState extends State<HomeScreen> {
-  int _currentIndex = 0;
-
-  void _onItemTapped(int index) {
-    setState(() {
-      _currentIndex = index;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
 
+    final HomeTabController c = Get.put(HomeTabController());
+
     final List<Widget> tabs = <Widget>[
-      HomeTab(customFunction: _onItemTapped),
-      CategoriesTab(customFunction: _onItemTapped),
+      HomeTab(customFunction: c.changeTabIndex),
+      CategoriesTab(customFunction: c.changeTabIndex),
       Center(
         child: AppTextWidget(text: "Profile", textColor: AppColors.mainColor),
       ),
@@ -39,10 +30,10 @@ class _HomeScreenState extends State<HomeScreen> {
 
     return Scaffold(
       backgroundColor: Colors.white,
-      body: tabs.elementAt(_currentIndex),
+      body: Obx(() => tabs.elementAt(c.currentIndex.value)),
       bottomNavigationBar: BottomNavigationBar(
-          onTap: _onItemTapped,
-          currentIndex: _currentIndex,
+          onTap: c.changeTabIndex,
+          currentIndex: c.currentIndex.value,
           selectedItemColor: AppColors.mainColorLighter,
           showUnselectedLabels: false,
           selectedLabelStyle: const TextStyle(
